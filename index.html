@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RP2040 エミュレータ REPL</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="bar">
+    <h1>RP2040 エミュレータ REPL</h1>
+    <span id="status" class="status" data-state="off">停止中</span>
+    <div class="actions">
+      <button id="btn-sound">ブザー音: OFF</button>
+      <button id="btn-fw">ファームウェア選択</button>
+      <button id="btn-interrupt" disabled title="Ctrl+C">中断</button>
+      <button id="btn-reset" disabled title="Ctrl+D">ソフトリセット</button>
+      <button id="btn-hard" disabled>ハードリセット</button>
+      <button id="btn-clear">クリア</button>
+    </div>
+    <input id="file" type="file" accept=".uf2" hidden>
+  </header>
+
+  <main class="layout">
+    <section class="pane">
+      <div id="drop" class="drop">
+        MicroPython の UF2 を、ここにドロップするか「ファームウェア選択」で読み込んでください。<br>
+        入手先: <code>micropython.org/download/RPI_PICO/</code> の <code>.uf2</code><br>
+        一度読み込むとブラウザに保存されます。<code>firmware.uf2</code> をこのフォルダに置き、HTTPサーバー経由で開けば自動で読み込みます。
+      </div>
+      <div id="term" class="term" tabindex="0" aria-label="MicroPython REPL ターミナル"></div>
+    </section>
+
+    <aside class="pane side">
+      <div id="board" class="vboard"></div>
+      <section class="editor-pane">
+      <div class="pane-head">
+        <label for="snippet">スニペット</label>
+        <select id="snippet"></select>
+        <button id="btn-run" class="primary" disabled>実行 (Ctrl+Enter)</button>
+      </div>
+      <textarea id="editor" spellcheck="false"></textarea>
+      </section>
+    </aside>
+  </main>
+
+  <script src="rp2040js.bundle.js"></script>
+  <script src="terminal.js"></script>
+  <script src="board.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
