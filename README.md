@@ -58,7 +58,7 @@
 | `rp2040js.bundle.js` | rp2040js とブートROMを 1 ファイルにまとめたもの |
 | `firmware.uf2` | MicroPython (RPI_PICO) |
 
-`firmware.uf2` のバージョン: **MicroPython v_._._ (RPI_PICO)** ← 配置したファイルに合わせて書き換えてください
+`firmware.uf2` のバージョン: **MicroPython v1.29.0.uf2 (RPI_PICO)** ← 配置したファイルに合わせて書き換えてください
 
 ## `rp2040js.bundle.js` の作り方
 
